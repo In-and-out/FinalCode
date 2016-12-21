@@ -15,13 +15,31 @@ public class archivioCircolari {
     private Circolare [] arrayCircolari;
     private int MAX_ARRAY;
     
-    public Circolare[] ricercaCircolare(SimpleDateFormat data){
+    public archivioCircolari (){
+        MAX_ARRAY=10;
+        arrayCircolari=new Circolare[MAX_ARRAY];
+    }
+    public archivioCircolari (int dimensione){
+        MAX_ARRAY=dimensione;
+        arrayCircolari=new Circolare[MAX_ARRAY];
+    }
+    
+    public boolean aggiungiCircolare(Circolare circ){
+        for(int i = 0; i< MAX_ARRAY;i++){
+            if(arrayCircolari[i]==null){
+                arrayCircolari[i]=new Circolare(circ);
+                return true;
+            }
+        }
+        return false;
+    }
+    public Circolare[] ricercaCircolare(Data data){
         Circolare [] a;
         a = new Circolare[MAX_ARRAY];
         int j=0;
         for(int i=0;i<arrayCircolari.length-1;i++)
         {
-            if(arrayCircolari[i].getData == data)
+            if(arrayCircolari[i].getData().equals(data))
                 a[j++]=new Circolare(arrayCircolari[i]);   
         }
         return a;
@@ -32,7 +50,7 @@ public class archivioCircolari {
         int j=0;
         for(int i=0;i<arrayCircolari.length-1;i++)
         {
-            if(arrayCircolari[i].getTipo == tipo)
+            if(arrayCircolari[i].getTipo() == tipo)
                 a[j++]=new Circolare(arrayCircolari[i]);   
         }
         return a;
@@ -43,7 +61,7 @@ public class archivioCircolari {
         int j=0;
         for(int i=0;i<arrayCircolari.length-1;i++)
         {
-            if(arrayCircolari[i].getClasse == classe)
+            if(arrayCircolari[i].getClasse().equals(classe))
                 a[j++]=new Circolare(arrayCircolari[i]);   
         }
         return a;

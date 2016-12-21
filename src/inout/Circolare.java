@@ -13,12 +13,9 @@ import java.text.SimpleDateFormat;
 public class Circolare {
     private Classe classe;
     private char tipo;
-    private SimpleDateFormat data;
+    private Data data;
     private String motivazione;
     private String annotazioni;
-    char getTipo;
-    Classe getClasse;
-    SimpleDateFormat getData;
 
     public Classe getClasse() {
         return classe;
@@ -32,10 +29,10 @@ public class Circolare {
     private void setTipo(char tipo) {
         this.tipo = tipo;
     }
-    public SimpleDateFormat getData() {
+    public Data getData() {
         return data;
     }
-    private void setData(SimpleDateFormat data) {
+    private void setData(Data data) {
         this.data = data;
     }
     public String getMotivazione() {
@@ -54,11 +51,11 @@ public class Circolare {
     public Circolare(){
         this.setClasse(new Classe());
         this.setTipo(' ');
-        this.setData(new SimpleDateFormat());
+        this.setData(new Data());
         this.setMotivazione("");
         this.setAnnotazioni("");
     }
-    public Circolare(Classe clas, char tipo, SimpleDateFormat data, String motivazione, String annotazioni){
+    public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
         this.setClasse(clas);
         this.setTipo(tipo);
         this.setData(data);
@@ -80,26 +77,26 @@ public class Circolare {
     public void modificaAnnotazioni(String annotazione){
         this.setAnnotazioni(annotazioni);
     }
-    public void modificaCircolare(Classe clas, char tipo, SimpleDateFormat data, String motivazione, String annotazioni){
-        if(clas==null)
+    public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
+        if(clas!=null)
         {
-            setClasse(classe);
+            this.setClasse(clas);
         }
-        if(data==null)
+        if(data!=null)
         {
-            setData(data);
+            this.setData(data);
         }
-        if(motivazione.equals(null))
+        if(!motivazione.equals(null))
         {
-            setMotivazione(motivazione);
+            this.setMotivazione(motivazione);
         }
-        if(annotazioni.equals(null))
+        if(!annotazioni.equals(null))
         {
-            setAnnotazioni(annotazioni);
+            this.setAnnotazioni(annotazioni);
         }
-        if(tipo == ' ')
+        if(tipo != ' ')
         {
-            setTipo(tipo);
+            this.setTipo(tipo);
         }
         
     }
@@ -109,7 +106,7 @@ public class Circolare {
             return false;
         if(!this.getMotivazione().equals(circolare.getMotivazione()))
             return false;
-        if(this.getData()!=circolare.getData())
+        if(!this.getData().equals(circolare.getData()))
             return false;
         if(!this.getAnnotazioni().equals(circolare.getAnnotazioni()))
             return false;
