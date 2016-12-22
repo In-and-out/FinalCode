@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package inout;
-
-import java.text.SimpleDateFormat;
 /**
  *
  * @author enrico
@@ -16,6 +14,7 @@ public class Circolare {
     private Data data;
     private String motivazione;
     private String annotazioni;
+    private int numeroCircolare;
 
     public Classe getClasse() {
         return classe;
@@ -47,6 +46,13 @@ public class Circolare {
     private void setAnnotazioni(String annotazioni) {
         this.annotazioni = annotazioni;
     }
+
+    public int getNumeroCircolare() {
+        return numeroCircolare;
+    }
+    private void setNumeroCircolare(int numeroCircolare) {
+        this.numeroCircolare = numeroCircolare;
+    }
     
     public Circolare(){
         this.setClasse(new Classe());
@@ -54,29 +60,31 @@ public class Circolare {
         this.setData(new Data());
         this.setMotivazione("");
         this.setAnnotazioni("");
+        this.setNumeroCircolare(0);
     }
-    public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
+    public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numeroCircolare){
         this.setClasse(clas);
         this.setTipo(tipo);
         this.setData(data);
         this.setMotivazione(motivazione);
         this.setAnnotazioni(annotazioni);
+        this.setNumeroCircolare(numeroCircolare);
     }
     public Circolare(Circolare circolare){
         this.setClasse(circolare.getClasse());
         this.setTipo(circolare.getTipo());
         this.setData(circolare.getData());
         this.setMotivazione(circolare.getMotivazione());
-        this.setAnnotazioni(circolare.getAnnotazioni());
+        this.setAnnotazioni(circolare.getAnnotazioni());        
+        this.setNumeroCircolare(circolare.getNumeroCircolare());
     }
     
-    
-    public void modificaMotivazione(String motivazione){
+    /**public void modificaMotivazione(String motivazione){
         this.setMotivazione(motivazione);
     }
     public void modificaAnnotazioni(String annotazione){
         this.setAnnotazioni(annotazioni);
-    }
+    }*/
     public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
         if(clas!=null)
         {
@@ -100,7 +108,6 @@ public class Circolare {
         }
         
     }
-
     public boolean equals(Circolare circolare) {
         if(this.getTipo()!=circolare.getTipo())
             return false;
@@ -112,7 +119,7 @@ public class Circolare {
             return false;
         if(!this.getClasse().equals(circolare.getClasse()))
             return false;
-        return true;
+        return this.getNumeroCircolare() == circolare.getNumeroCircolare();
     }
     
     

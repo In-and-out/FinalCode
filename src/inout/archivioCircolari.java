@@ -5,8 +5,6 @@
  */
 package inout;
 
-import java.text.SimpleDateFormat;
-
 /**
  *
  * @author Matteo Gagliardi
