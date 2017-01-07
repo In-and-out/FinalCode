@@ -10,44 +10,56 @@ package inout;
  * @author Enrico Falco
  */
 public class Data {
+
     private int gg;
     private int mm;
     private int yy;
     private int hh;
-/**
- * getter e setter della classe data
- * @return 
- */
+
+    /**
+     * getter e setter della classe data
+     *
+     * @return
+     */
     public int getGg() {
         return gg;
     }
+
     public void setGg(int gg) {
         this.gg = gg;
     }
+
     public int getMm() {
         return mm;
     }
+
     public void setMm(int mm) {
         this.mm = mm;
     }
+
     public int getYy() {
         return yy;
     }
+
     public void setYy(int yy) {
         this.yy = yy;
     }
+
     public int getHh() {
         return hh;
     }
+
     public void setHh(int hh) {
         this.hh = hh;
     }
+
     /**
      * costruttore con parametri della classe data
+     *
      * @param gg
      * @param mm
      * @param yy
-     * @param hh 
+     * @param hh
      */
     public Data(int gg, int mm, int yy, int hh) {
         this.setGg(gg);
@@ -55,6 +67,7 @@ public class Data {
         this.setYy(yy);
         this.setHh(hh);
     }
+
     /**
      * costruttore di default della classe data
      */
@@ -64,10 +77,12 @@ public class Data {
         this.setYy(0);
         this.setHh(0);
     }
+
     /**
      * metodo equals della classe data
+     *
      * @param other
-     * @return 
+     * @return
      */
     public boolean equals(Data other) {
         if (this.getGg() != other.getGg()) {
@@ -84,6 +99,10 @@ public class Data {
         }
         return true;
     }
-    
-    
+
+    public String toString() {
+        String end;
+        end = Integer.toString(getGg()) + "." + Integer.toString(getHh()) + "." + Integer.toString(getMm());
+        return end;
+    }
 }
