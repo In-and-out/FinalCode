@@ -12,7 +12,7 @@ package inout;
 public class Classe {
 
     private int annoClasse;
-    private char sezone;
+    private char sezione;
     private String articolazione;
 
     /**
@@ -28,12 +28,12 @@ public class Classe {
         this.annoClasse = annoClasse;
     }
 
-    public char getSezone() {
-        return sezone;
+    public char getSezione() {
+        return sezione;
     }
 
-    public void setSezone(char sezone) {
-        this.sezone = sezone;
+    public void setSezione(char sezione) {
+        this.sezione = sezione;
     }
 
     public String getArticolazione() {
@@ -50,7 +50,7 @@ public class Classe {
     public Classe() {
         this.setAnnoClasse(0);
         this.setArticolazione("");
-        this.setSezone(' ');
+        this.setSezione(' ');
     }
 
     /**
@@ -63,7 +63,7 @@ public class Classe {
     public Classe(int classe, String articolazione, char sezione) {
         this.setAnnoClasse(classe);
         this.setArticolazione(articolazione);
-        this.setSezone(sezione);
+        this.setSezione(sezione);
     }
 
     /**
@@ -73,7 +73,7 @@ public class Classe {
      * @return
      */
     public boolean equals(Classe clas) {
-        if (this.getAnnoClasse() == clas.getAnnoClasse() && this.getSezone() == clas.getSezone() && this.getArticolazione().equals(clas.getArticolazione())) {
+        if (this.getAnnoClasse() == clas.getAnnoClasse() && this.getSezione() == clas.getSezione() && this.getArticolazione().equals(clas.getArticolazione())) {
             return true;
         }
         return false;

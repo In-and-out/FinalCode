@@ -52,7 +52,7 @@ public class Html {
 
     public void sostituisciClasse() {
         finale = finale.replace("$classe", Integer.toString(dati.getClasse().getAnnoClasse())
-                + dati.getClasse().getSezone());
+                + dati.getClasse().getSezione());
     }
 
     public void sostituisciData() {
