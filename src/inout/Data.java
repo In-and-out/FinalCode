@@ -14,7 +14,10 @@ public class Data {
     private int mm;
     private int yy;
     private int hh;
-
+/**
+ * getter e setter della classe data
+ * @return 
+ */
     public int getGg() {
         return gg;
     }
@@ -39,18 +42,33 @@ public class Data {
     public void setHh(int hh) {
         this.hh = hh;
     }
+    /**
+     * costruttore con parametri della classe data
+     * @param gg
+     * @param mm
+     * @param yy
+     * @param hh 
+     */
     public Data(int gg, int mm, int yy, int hh) {
         this.setGg(gg);
         this.setMm(mm);
         this.setYy(yy);
         this.setHh(hh);
     }
+    /**
+     * costruttore di default della classe data
+     */
     public Data() {
         this.setGg(0);
         this.setMm(0);
         this.setYy(0);
         this.setHh(0);
     }
+    /**
+     * metodo equals della classe data
+     * @param other
+     * @return 
+     */
     public boolean equals(Data other) {
         if (this.getGg() != other.getGg()) {
             return false;

@@ -15,7 +15,10 @@ public class Circolare {
     private String motivazione;
     private String annotazioni;
     private int numeroCircolare;
-
+/**
+ * getter e setter della classe circolare
+ * @return 
+ */
     public Classe getClasse() {
         return classe;
     }
@@ -53,7 +56,9 @@ public class Circolare {
     private void setNumeroCircolare(int numeroCircolare) {
         this.numeroCircolare = numeroCircolare;
     }
-    
+    /**
+     * costruttore di default della classe circolare
+     */
     public Circolare(){
         this.setClasse(new Classe());
         this.setTipo(' ');
@@ -62,6 +67,15 @@ public class Circolare {
         this.setAnnotazioni("");
         this.setNumeroCircolare(0);
     }
+    /**
+     * costruttore con parametri della classe circolare
+     * @param clas
+     * @param tipo
+     * @param data
+     * @param motivazione
+     * @param annotazioni
+     * @param numeroCircolare 
+     */
     public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numeroCircolare){
         this.setClasse(clas);
         this.setTipo(tipo);
@@ -70,6 +84,10 @@ public class Circolare {
         this.setAnnotazioni(annotazioni);
         this.setNumeroCircolare(numeroCircolare);
     }
+    /**
+     * costruttore di copia della classe circolare
+     * @param circolare 
+     */
     public Circolare(Circolare circolare){
         this.setClasse(circolare.getClasse());
         this.setTipo(circolare.getTipo());
@@ -79,12 +97,14 @@ public class Circolare {
         this.setNumeroCircolare(circolare.getNumeroCircolare());
     }
     
-    /**public void modificaMotivazione(String motivazione){
-        this.setMotivazione(motivazione);
-    }
-    public void modificaAnnotazioni(String annotazione){
-        this.setAnnotazioni(annotazioni);
-    }*/
+    /**
+     * metodo per modificare una circolare se i parametri all'interno della circolare non sono vuoti
+     * @param clas
+     * @param tipo
+     * @param data
+     * @param motivazione
+     * @param annotazioni 
+     */
     public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
         if(clas!=null)
         {
@@ -108,6 +128,11 @@ public class Circolare {
         }
         
     }
+    /**
+     * metodo equals della classe circolare
+     * @param circolare
+     * @return 
+     */
     public boolean equals(Circolare circolare) {
         if(this.getTipo()!=circolare.getTipo())
             return false;
