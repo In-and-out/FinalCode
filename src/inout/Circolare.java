@@ -4,48 +4,61 @@
  * and open the template in the editor.
  */
 package inout;
+
 /**
  *
  * @author enrico
  */
 public class Circolare {
+
     private Classe classe;
     private char tipo;
     private Data data;
     private String motivazione;
     private String annotazioni;
     private int numeroCircolare;
-/**
- * getter e setter della classe circolare
- * @return 
- */
+
+    /**
+     * getter e setter della classe circolare
+     *
+     * @return
+     */
     public Classe getClasse() {
         return classe;
     }
+
     private void setClasse(Classe classe) {
         this.classe = classe;
     }
-    public char getTipo(){
+
+    public char getTipo() {
         return tipo;
     }
+
     private void setTipo(char tipo) {
         this.tipo = tipo;
     }
+
     public Data getData() {
         return data;
     }
+
     private void setData(Data data) {
         this.data = data;
     }
+
     public String getMotivazione() {
         return motivazione;
     }
+
     private void setMotivazione(String motivazione) {
         this.motivazione = motivazione;
     }
+
     public String getAnnotazioni() {
         return annotazioni;
     }
+
     private void setAnnotazioni(String annotazioni) {
         this.annotazioni = annotazioni;
     }
@@ -53,13 +66,15 @@ public class Circolare {
     public int getNumeroCircolare() {
         return numeroCircolare;
     }
+
     private void setNumeroCircolare(int numeroCircolare) {
         this.numeroCircolare = numeroCircolare;
     }
+
     /**
      * costruttore di default della classe circolare
      */
-    public Circolare(){
+    public Circolare() {
         this.setClasse(new Classe());
         this.setTipo(' ');
         this.setData(new Data());
@@ -67,16 +82,18 @@ public class Circolare {
         this.setAnnotazioni("");
         this.setNumeroCircolare(0);
     }
+
     /**
      * costruttore con parametri della classe circolare
+     *
      * @param clas
      * @param tipo
      * @param data
      * @param motivazione
      * @param annotazioni
-     * @param numeroCircolare 
+     * @param numeroCircolare
      */
-    public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numeroCircolare){
+    public Circolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numeroCircolare) {
         this.setClasse(clas);
         this.setTipo(tipo);
         this.setData(data);
@@ -84,68 +101,73 @@ public class Circolare {
         this.setAnnotazioni(annotazioni);
         this.setNumeroCircolare(numeroCircolare);
     }
+
     /**
      * costruttore di copia della classe circolare
-     * @param circolare 
+     *
+     * @param circolare
      */
-    public Circolare(Circolare circolare){
+    public Circolare(Circolare circolare) {
         this.setClasse(circolare.getClasse());
         this.setTipo(circolare.getTipo());
         this.setData(circolare.getData());
         this.setMotivazione(circolare.getMotivazione());
-        this.setAnnotazioni(circolare.getAnnotazioni());        
+        this.setAnnotazioni(circolare.getAnnotazioni());
         this.setNumeroCircolare(circolare.getNumeroCircolare());
     }
-    
+
     /**
-     * metodo per modificare una circolare se i parametri all'interno della circolare non sono vuoti
+     * metodo per modificare una circolare se i parametri all'interno della
+     * circolare non sono vuoti
+     *
      * @param clas
      * @param tipo
      * @param data
      * @param motivazione
-     * @param annotazioni 
+     * @param annotazioni
      */
-    public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni){
-        if(clas!=null)
-        {
+    public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni) {
+        if (clas != null) {
             this.setClasse(clas);
         }
-        if(data!=null)
-        {
+        if (data != null) {
             this.setData(data);
         }
-        if(!motivazione.equals(null))
-        {
+        if (!motivazione.equals(null)) {
             this.setMotivazione(motivazione);
         }
-        if(!annotazioni.equals(null))
-        {
+        if (!annotazioni.equals(null)) {
             this.setAnnotazioni(annotazioni);
         }
-        if(tipo != ' ')
-        {
+        if (tipo != ' ') {
             this.setTipo(tipo);
         }
-        
+
     }
+
     /**
      * metodo equals della classe circolare
+     *
      * @param circolare
-     * @return 
+     * @return
      */
     public boolean equals(Circolare circolare) {
-        if(this.getTipo()!=circolare.getTipo())
+        if (this.getTipo() != circolare.getTipo()) {
             return false;
-        if(!this.getMotivazione().equals(circolare.getMotivazione()))
+        }
+        if (!this.getMotivazione().equals(circolare.getMotivazione())) {
             return false;
-        if(!this.getData().equals(circolare.getData()))
+        }
+        if (!this.getData().equals(circolare.getData())) {
             return false;
-        if(!this.getAnnotazioni().equals(circolare.getAnnotazioni()))
+        }
+        if (!this.getAnnotazioni().equals(circolare.getAnnotazioni())) {
             return false;
-        if(!this.getClasse().equals(circolare.getClasse()))
+        }
+        if (!this.getClasse().equals(circolare.getClasse())) {
             return false;
+        }
         return this.getNumeroCircolare() == circolare.getNumeroCircolare();
     }
-    
-    
+
 }
