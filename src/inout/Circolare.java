@@ -147,5 +147,7 @@ public class Circolare {
         return this.getNumeroCircolare() == circolare.getNumeroCircolare();
     }
     
+    public boolean is_useless() { return true; }
+    
     
 }
