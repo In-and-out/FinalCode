@@ -79,4 +79,9 @@ public class Classe {
         return false;
     }
 
+    //Lo avrei fatto a mano ma non ci tengo molto al fatto che funzioni bene, voglio solo vedere se stampa la prova -
+    public String toString() {
+        return "Classe{" + "annoClasse=" + annoClasse + ", sezione=" + sezione + ", articolazione=" + articolazione + '}';
+    }
+
 }

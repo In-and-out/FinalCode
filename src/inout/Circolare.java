@@ -170,4 +170,8 @@ public class Circolare {
         return this.getNumeroCircolare() == circolare.getNumeroCircolare();
     }
 
+    //Lo avrei fatto a mano ma non ci tengo molto al fatto che funzioni bene, voglio solo vedere se stampa la prova -
+    public String toString() {
+        return "Circolare{" + "classe=" + classe + ", tipo=" + tipo + ", data=" + data + ", motivazione=" + motivazione + ", annotazioni=" + annotazioni + ", numeroCircolare=" + numeroCircolare + '}';
+    }
 }
