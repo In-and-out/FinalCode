@@ -102,7 +102,7 @@ public class Data {
 
     public String toString() {
         String end;
-        end = Integer.toString(getGg()) + "." + Integer.toString(getHh()) + "." + Integer.toString(getMm());
+        end = Integer.toString(getGg()) + "." + Integer.toString(getMm()) + "." + Integer.toString(getYy());
         return end;
     }
 }

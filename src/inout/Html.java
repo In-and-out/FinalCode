@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -50,21 +53,24 @@ public class Html {
         this.dati = dati;
     }
 
+    public void sostituisciData() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate localDate = LocalDate.now();
+        finale = finale.replace("$dataCorrente", dtf.format(localDate));
+        finale = finale.replace("$dataCircolare", dati.getData().toString());
+    }
+
+    public void sostituisciNumero() {
+        finale = finale.replace("$numeroCircolare", Integer.toString(dati.getNumeroCircolare()));
+    }
+
     public void sostituisciClasse() {
         finale = finale.replace("$classe", Integer.toString(dati.getClasse().getAnnoClasse())
                 + dati.getClasse().getSezione());
     }
 
-    public void sostituisciData() {
-        finale = finale.replace("$data", dati.getData().toString());
-    }
-
     public void sostituisciMotivo() {
-        finale = finale.replace("$motivo", dati.getMotivazione());
-    }
-
-    public void sostituisciNumero() {
-        finale = finale.replace("$circolare", Integer.toString(dati.getNumeroCircolare()));
+        finale = finale.replace("$motivazione", dati.getMotivazione());
     }
 
     public void sostituisciOre() {
@@ -73,16 +79,15 @@ public class Html {
 
     public void sostituisciTipo() {
         if (dati.getTipo() == 'E' || dati.getTipo() == 'e') {
-            finale = finale.replace("$entusc", "Entrata");
+            finale = finale.replace("$tipo", "Entrata");
         } else if (dati.getTipo() == 'U' || dati.getTipo() == 'u') {
-            finale = finale.replace("$entusc", "Uscita");
+            finale = finale.replace("$tipo", "Uscita");
         }
     }
 
     public void creaFile(String nome) {
         File risultato = new File("src/fineDati/" + nome + ".html");
         try {
-            System.out.println(risultato.getAbsolutePath());
             FileWriter fw = new FileWriter(risultato);
             fw.write(finale);
             fw.close();
@@ -92,7 +97,7 @@ public class Html {
 
     public static void main(String[] args) throws IOException {
         Classe classe = new Classe(4, "cipollania", 'f');
-        Data data = new Data(12, 05, 16, 12);
+        Data data = new Data(12, 05, 2016, 13);
         Circolare test = new Circolare(classe, 'e', data, "mi piacciono i piedi", "nah m8", 3954);
         Html grigio = new Html(test);
 
