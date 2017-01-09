@@ -6,8 +6,10 @@
 package inout;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -46,14 +48,14 @@ public class Ricerca extends javax.swing.JFrame {
             Object rowData[] = new Object[7];
             for(int i = 0; i < Globale.archivio.getLenght(); i++){
                 if(Globale.archivio.getCircolare(i)!=null){
-                    rowData[0] = list.get(i).getAnnotazioni();
-                rowData[1] = list.get(i).getTipo();
-                rowData[2] = list.get(i).getData().getHh();
-                rowData[3] = ""+list.get(i).getData().getGg() +"-"+ list.get(i).getData().getMm() +"-"+ list.get(i).getData().getYy();
-                rowData[4] = ""+list.get(i).getClasse().getAnnoClasse() + list.get(i).getClasse().getSezione() + list.get(i).getClasse().getArticolazione();
-                rowData[5] = list.get(i).getNumeroCircolare();
-                rowData[6] = list.get(i).getMotivazione();
-                model.addRow(rowData);
+                    rowData[0] = list.get(i).getNumeroCircolare();
+                    rowData[1] = ""+list.get(i).getClasse().getAnnoClasse() + list.get(i).getClasse().getSezione() + list.get(i).getClasse().getArticolazione();
+                    rowData[2] = ""+list.get(i).getData().getGg() +"-"+ list.get(i).getData().getMm() +"-"+ list.get(i).getData().getYy();
+                    rowData[3] = list.get(i).getData().getHh();
+                    rowData[4] = list.get(i).getTipo();
+                    rowData[5] = list.get(i).getMotivazione();
+                    rowData[6] = list.get(i).getAnnotazioni();
+                    model.addRow(rowData);
                 }
                 
             }
@@ -127,6 +129,7 @@ public class Ricerca extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        cmdSave = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -210,6 +213,13 @@ public class Ricerca extends javax.swing.JFrame {
 
         jLabel5.setText("Data");
 
+        cmdSave.setText("SALVA BK");
+        cmdSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -243,6 +253,9 @@ public class Ricerca extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmdLogOut)))
                 .addGap(0, 9, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(cmdSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +266,9 @@ public class Ricerca extends javax.swing.JFrame {
                     .addComponent(cmdLogOut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmdIns)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -296,7 +311,7 @@ public class Ricerca extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
+                .addContainerGap(493, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(305, 305, 305))
         );
@@ -312,7 +327,7 @@ public class Ricerca extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Tipo", "Ora", "Data", "Classe", "N. Circolare", "Motivazione"
+                "N. Circolare", "Classe", "Data", "Ora", "Tipo", "Motivazione", "Annotazioni"
             }
         ) {
             Class[] types = new Class [] {
@@ -342,10 +357,10 @@ public class Ricerca extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -417,6 +432,23 @@ public class Ricerca extends javax.swing.JFrame {
     private void cmbClasse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClasse2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbClasse2ActionPerformed
+
+    private void cmdSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSaveActionPerformed
+        List<String> list2 = new ArrayList();
+
+        for (int i = 0; i < Globale.archivio.getLenght();i++) {
+            list2.add(Globale.archivio.getArrayCircolari()[i].toString());
+        }
+
+        String csvFile2 = "def.csv";
+        try (FileWriter writer = new FileWriter(csvFile2)) {
+            CSV.writeLine(writer, list2, '\n', ' ');
+            writer.flush();
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Ricerca.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cmdSaveActionPerformed
           
     /**
      * @param args the command line arguments
@@ -487,6 +519,7 @@ public class Ricerca extends javax.swing.JFrame {
     private javax.swing.JButton cmdLogOut;
     private javax.swing.JButton cmdLogin;
     private javax.swing.JButton cmdModifica;
+    private javax.swing.JButton cmdSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
