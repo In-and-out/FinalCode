@@ -126,23 +126,32 @@ public class Circolare {
      * @param motivazione
      * @param annotazioni
      */
-    public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni) {
-        if (clas != null) {
+    public void modificaCircolare(Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numero){
+        if(clas!=null)
+        {
             this.setClasse(clas);
         }
-        if (data != null) {
+        if(data!=null)
+        {
             this.setData(data);
         }
-        if (!motivazione.equals(null)) {
+        if(!motivazione.equals(null))
+        {
             this.setMotivazione(motivazione);
         }
-        if (!annotazioni.equals(null)) {
+        if(!annotazioni.equals(null))
+        {
             this.setAnnotazioni(annotazioni);
         }
-        if (tipo != ' ') {
+        if(tipo != ' ')
+        {
             this.setTipo(tipo);
         }
-
+        if(numero != 0)
+        {
+            this.setNumeroCircolare(numero);
+        }
+        
     }
 
     /**

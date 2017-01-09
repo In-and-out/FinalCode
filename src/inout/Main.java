@@ -59,9 +59,9 @@ public class Main {
             shish.setSezione(candidateChars.charAt(r.nextInt(candidateChars.length() / 2)));
 
             if (r.nextInt(1) == 1) {
-                circ.modificaCircolare(shish, 'u', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10));
+                circ.modificaCircolare(shish, 'u', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), r.nextInt());
             } else {
-                circ.modificaCircolare(shish, 'e', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10));
+                circ.modificaCircolare(shish, 'e', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), r.nextInt());
             }
             archivio.aggiungiCircolare(circ);
         }
