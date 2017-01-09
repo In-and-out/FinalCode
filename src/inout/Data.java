@@ -100,6 +100,7 @@ public class Data {
         return true;
     }
 
+    //Questa è una brutta versione di toString che mi serviva per avere la data stampata in modo corretto nell'HTML -Depa
     public String toString() {
         String end;
         end = Integer.toString(getGg()) + "." + Integer.toString(getMm()) + "." + Integer.toString(getYy());
