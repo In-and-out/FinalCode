@@ -95,7 +95,7 @@ public class Html {
     }
 
     public static void main(String[] args) throws IOException {
-        Classe classe = new Classe(4, "cipollania", 'f');
+        Classe classe = new Classe(4, 'f', "cipollania");
         Data data = new Data(12, 05, 2016, 13);
         Circolare test = new Circolare(classe, 'e', data, "mi piacciono i piedi", "nah m8", 3954);
         Html grigio = new Html(test);

@@ -59,9 +59,9 @@ public class Main {
             shish.setSezione(candidateChars.charAt(r.nextInt(candidateChars.length() / 2)));
 
             if (r.nextInt(1) == 1) {
-                circ.modificaCircolare(shish, 'u', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), r.nextInt());
+                circ.modificaCircolare(shish, 'u', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), i);
             } else {
-                circ.modificaCircolare(shish, 'e', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), r.nextInt());
+                circ.modificaCircolare(shish, 'e', data, generateRandomChars(candidateChars, 10), generateRandomChars(candidateChars, 10), i);
             }
             archivio.aggiungiCircolare(circ);
         }
@@ -74,7 +74,7 @@ public class Main {
 
         String csvFile2 = "def.csv";
         try (FileWriter writer = new FileWriter(csvFile2)) {
-            CSV.writeLine(writer, list2, '\n', '☺');
+            CSV.writeLine(writer, list2, '\n', ' ');
             writer.flush();
             writer.close();
         }

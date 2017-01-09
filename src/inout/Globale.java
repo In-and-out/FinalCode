@@ -13,6 +13,6 @@ public class Globale {
 
     public static Circolare circolare = new Circolare();
     public static int indice = 0;
-    public static archivioCircolari archivio = new archivioCircolari(1000);
+    public static archivioCircolari archivio = new archivioCircolari(100000);
 
 }

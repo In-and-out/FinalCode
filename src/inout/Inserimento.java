@@ -363,7 +363,7 @@ public class Inserimento extends javax.swing.JFrame {
             int hh = Integer.parseInt(cmbOra.getSelectedItem().toString());
             Data d = new Data(gg, mm, yy, hh);
             char c = cmbClasse2.getSelectedItem().toString().charAt(0);
-            Classe clas = new Classe(anno, cmbClasse.getSelectedItem().toString(), c);
+            Classe clas = new Classe(anno, c, cmbClasse.getSelectedItem().toString());
             Circolare circ = new Circolare(clas, cmbTipo.getSelectedItem().toString().charAt(0), d, cmbMot.getSelectedItem().toString(), txtOggetto.getText(), num);
             Globale.archivio.aggiungiCircolare(circ);
             JOptionPane.showMessageDialog(this, "Circolare inserita correttamente!");

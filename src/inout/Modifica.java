@@ -621,7 +621,7 @@ public class Modifica extends javax.swing.JFrame {
             int hh=Integer.parseInt(cmbOra1.getSelectedItem().toString());
             Data d=new Data(gg,mm,yy,hh);
             char c = cmbSezione1.getSelectedItem().toString().charAt(0);
-            Classe clas = new Classe(anno, cmbArticolazione1.getSelectedItem().toString(), c);
+            Classe clas = new Classe(anno, c, cmbArticolazione1.getSelectedItem().toString());
             Circolare circ=new Circolare(clas, cmbTipo1.getSelectedItem().toString().charAt(0), d, cmbMot1.getSelectedItem().toString(), txtOggetto1.getText(), num);
             if(Globale.archivio.getCircolare(Globale.indice) != null){
                 Globale.archivio.modificaCircolare(Globale.indice,clas, cmbTipo1.getSelectedItem().toString().charAt(0), d, cmbMot1.getSelectedItem().toString(), txtOggetto1.getText(), num);

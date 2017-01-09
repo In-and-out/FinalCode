@@ -60,7 +60,7 @@ public class Classe {
      * @param articolazione
      * @param sezione
      */
-    public Classe(int classe, String articolazione, char sezione) {
+    public Classe(int classe, char sezione, String articolazione) {
         this.setAnnoClasse(classe);
         this.setArticolazione(articolazione);
         this.setSezione(sezione);
@@ -81,7 +81,7 @@ public class Classe {
 
     //Lo avrei fatto a mano ma non ci tengo molto al fatto che funzioni bene, voglio solo vedere se stampa la prova -
     public String toString() {
-        return "Classe{" + "annoClasse=" + annoClasse + ", sezione=" + sezione + ", articolazione=" + articolazione + '}';
+        return annoClasse + ";" + sezione + ";" + articolazione;
     }
 
 }
