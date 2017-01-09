@@ -18,13 +18,14 @@ public class archivioCircolari {
 
     private Circolare[] arrayCircolari;
     private int MAX_ARRAY;
+    private int dim;
 
     /**
      * costruttore di deafult dell'array di circolari con dimensione
      * prestabilita
      */
     public archivioCircolari() {
-        MAX_ARRAY = 10;
+        MAX_ARRAY = 100000;
         arrayCircolari = new Circolare[MAX_ARRAY];
     }
 
@@ -50,6 +51,7 @@ public class archivioCircolari {
         for (int i = 0; i < MAX_ARRAY; i++) {
             if (arrayCircolari[i] == null) {
                 arrayCircolari[i] = new Circolare(circ);
+                this.setDim(this.getDim() + 1);
                 return true;
             }
         }
@@ -125,22 +127,41 @@ public class archivioCircolari {
         return a;
     }
 
+    public void modificaCircolare(int i, Classe clas, char tipo, Data data, String motivazione, String annotazioni, int numero) {
+        if (arrayCircolari[i] != null) {
+            arrayCircolari[i].modificaCircolare(clas, tipo, data, motivazione, annotazioni, numero);
+        }
+
+    }
+
     /**
      * metodo per l'eliminazione della circolare data una
      *
      * @param pos
      * @return
      */
-    public boolean eliminaCircolare(int pos) {
-        if (arrayCircolari[pos] == null) {
-            return true;
-        } else {
-            return false;
-        }
+    public void eliminaCircolare(int pos) {
+        if (arrayCircolari[pos] != null)
+            arrayCircolari[pos]=null;
     }
 
     public Circolare[] getArrayCircolari() {
         return arrayCircolari;
     }
 
+    public int getLenght() {
+        return dim;
+    }
+
+    public int getDim() {
+        return dim;
+    }
+
+    public void setDim(int dim) {
+        this.dim = dim;
+    }
+
+    public Circolare getCircolare(int i) {
+        return arrayCircolari[i];
+    }
 }
