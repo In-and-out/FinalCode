@@ -83,13 +83,13 @@ public class Ricerca extends javax.swing.JFrame {
             Object rowData[] = new Object[7];
             for(int i = 0; i < Globale.archivio.getLenght(); i++){
                 if(Globale.archivio.getCircolare(i)!=null){
-                    rowData[0] = list.get(i).getAnnotazioni();
-                rowData[1] = list.get(i).getTipo();
-                rowData[2] = list.get(i).getData().getHh();
-                rowData[3] = ""+list.get(i).getData().getGg() +"-"+ list.get(i).getData().getMm() +"-"+ list.get(i).getData().getYy();
-                rowData[4] = ""+list.get(i).getClasse().getAnnoClasse() + list.get(i).getClasse().getSezione() + list.get(i).getClasse().getArticolazione();
-                rowData[5] = list.get(i).getNumeroCircolare();
-                rowData[6] = list.get(i).getMotivazione();
+                    rowData[0] = list.get(i).getNumeroCircolare();
+                    rowData[1] = ""+list.get(i).getClasse().getAnnoClasse() + list.get(i).getClasse().getSezione() + list.get(i).getClasse().getArticolazione();
+                    rowData[2] = ""+list.get(i).getData().getGg() +"-"+ list.get(i).getData().getMm() +"-"+ list.get(i).getData().getYy();
+                    rowData[3] = list.get(i).getData().getHh();
+                    rowData[4] = list.get(i).getTipo();
+                    rowData[5] = list.get(i).getMotivazione();
+                    rowData[6] = list.get(i).getAnnotazioni();
                 model.addRow(rowData);
                 }
                 
