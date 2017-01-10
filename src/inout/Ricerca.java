@@ -35,6 +35,7 @@ public class Ricerca extends javax.swing.JFrame {
             cmdLogOut.setVisible(false);
             cmdIns.setVisible(false);
             cmdModifica.setVisible(false);
+            cmdSave.setVisible(false);
             
             ArrayList <Circolare> list = new ArrayList<Circolare>();
             
@@ -69,11 +70,13 @@ public class Ricerca extends javax.swing.JFrame {
             cmdLogOut.setVisible(true);
             cmdIns.setVisible(true);
             cmdModifica.setVisible(true);
+            cmdSave.setVisible(true);
             }else{
                 cmdLogin.setVisible(true);
             cmdLogOut.setVisible(false);
             cmdIns.setVisible(false);
             cmdModifica.setVisible(false);
+            cmdSave.setVisible(false);
             }
             ArrayList <Circolare> list = new ArrayList<Circolare>();
             for(int i = 0; i < Globale.archivio.getLenght(); i++){
